@@ -1,65 +1,149 @@
-import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="p-4 max-w-6xl space-y-4">
+      
+      <div>
+        <h1 className="text-3xl font-bold">Minimums</h1>
+        <p className="text-zinc-500">Checkride progress tracker</p>
+      </div>
+
+      <div className="flex gap-6">
+
+        {/* Left side - Flight Hours */}
+        <div className="w-1/2 space-y-3">
+          <h2 className="text-xl font-semibold">Flight Hours</h2>
+          <div className="grid grid-cols-2 gap-3">
+            <Card>
+              <CardHeader><CardTitle>Total Flight Time</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={62} />
+                <p className="text-sm text-zinc-500 mt-2">25 of 40 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Dual Instruction</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={75} />
+                <p className="text-sm text-zinc-500 mt-2">15 of 20 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Solo</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={70} />
+                <p className="text-sm text-zinc-500 mt-2">7 of 10 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Cross-Country</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={60} />
+                <p className="text-sm text-zinc-500 mt-2">3 of 5 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Night</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={100} />
+                <p className="text-sm text-zinc-500 mt-2">3 of 3 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Instrument</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={33} />
+                <p className="text-sm text-zinc-500 mt-2">1 of 3 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Checkride Prep</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={33} />
+                <p className="text-sm text-zinc-500 mt-2">1 of 3 hours</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Solo Cross-Country</CardTitle></CardHeader>
+              <CardContent>
+                <Progress value={40} />
+                <p className="text-sm text-zinc-500 mt-2">2 of 5 hours</p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Right side - Milestones */}
+        <div className="w-1/2 space-y-3">
+          <h2 className="text-xl font-semibold">Milestones</h2>
+          <div className="grid grid-cols-2 gap-3">
+            <Card>
+              <CardHeader><CardTitle>Documents</CardTitle></CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Student Pilot Certificate</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Medical Certificate</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Photo ID</label>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Endorsements</CardTitle></CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Pre-Solo Knowledge Test</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Pre-Solo Flight Endorsement</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Solo XC Endorsement</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Knowledge Test Endorsement</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Checkride Endorsement</label>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Tests</CardTitle></CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>FAA Knowledge Test (Written)</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>Practical Test (Checkride)</label>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Flight Milestones</CardTitle></CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>150nm Solo XC</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>3 Solo Towered Landings</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox /><label>10 Night Full-Stop Landings</label>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </main>
+
+      </div>
+
     </div>
   );
 }
